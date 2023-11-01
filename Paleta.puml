@@ -1,0 +1,25 @@
+@startuml Paleta
+
+class Paleta<T> {
+    -sabor: String
+    -precio: double
+    -tipoEspecifico: T
+    +Paleta(sabor: String, precio: double, tipoEspecifico: T)
+    +getSabor(): String
+    +getPrecio(): double
+    +getTipoEspecifico(): T
+    +mostrarInformacion(): void
+}
+
+class PaletaFresa {
+    // Define propiedades específicas para una paleta de fresa
+}
+
+class Main {
+    +main(args: String[]): void
+}
+
+Main --> Paleta : Utiliza
+Main --> PaletaFresa : Utiliza
+
+@enduml

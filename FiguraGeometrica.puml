@@ -1,0 +1,36 @@
+@startuml FiguraGeometrica
+
+interface FiguraGeometrica {
+    +calcularArea(): double
+    +calcularPerimetro(): double
+    +obtenerNombre(): String
+}
+
+class Circulo implements FiguraGeometrica, Comparable<FiguraGeometrica> {
+    -radio: double
+    +Circulo(radio: double)
+    +calcularArea(): double
+    +calcularPerimetro(): double
+    +obtenerNombre(): String
+    +compareTo(otraFigura: FiguraGeometrica): int
+}
+
+class Cuadrado implements FiguraGeometrica, Comparable<FiguraGeometrica> {
+    -lado: double
+    +Cuadrado(lado: double)
+    +calcularArea(): double
+    +calcularPerimetro(): double
+    +obtenerNombre(): String
+    +compareTo(otraFigura: FiguraGeometrica): int
+}
+
+class Main {
+    +main(args: String[]): void
+}
+
+Main --> FiguraGeometrica : Utiliza
+Circulo --> FiguraGeometrica
+Cuadrado --> FiguraGeometrica
+
+@enduml
+

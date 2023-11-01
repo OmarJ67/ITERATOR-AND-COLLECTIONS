@@ -1,0 +1,41 @@
+@startuml Personaje
+
+interface Personaje {
+    + atacar(objetivo: Personaje)
+    + recibirDanio(cantidadDanio: int)
+    + obtenerNombre(): String
+    + obtenerPuntosVida(): int
+}
+
+class PersonajeGenerica {
+    -nombre: String
+    -puntosVida: int
+    + PersonajeGenerica(nombre: String, puntosVida: int)
+    + atacar(objetivo: Personaje)
+    + recibirDanio(cantidadDanio: int)
+    + obtenerNombre(): String
+    + obtenerPuntosVida(): int
+}
+
+Personaje <|.. PersonajeGenerica
+
+class Guerrero {
+    + Guerrero(nombre: String, puntosVida: int)
+    + atacar(objetivo: Personaje)
+}
+
+PersonajeGenerica <|.. Guerrero
+
+class Mago {
+    + Mago(nombre: String, puntosVida: int)
+    + atacar(objetivo: Personaje)
+}
+
+PersonajeGenerica <|.. Mago
+
+Main --> PersonajeGenerica
+Main --> Guerrero
+Main --> Mago
+Main --> Personaje
+
+@enduml
